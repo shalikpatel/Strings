@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+char repeatedChar(string s)
+{
+    int len = s.length();
+    bool h[26];
+    memset(h, 0, sizeof(h));
+    
+    for(int i = 0; i < len; i++) {
+        if(h[s[i]-'a'] == 1) {
+            return s[i];
+        } else {
+            h[s[i]- 'a']++;
+        }
+    }
+    
+    return NULL;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    
+    char ch = repeatedChar(s);
+    
+    if(ch == NULL) {
+        cout << -1 << endl;
+    } else {
+        cout << ch << endl;
+    }
+    
+
+	return 0;
+}
