@@ -1,0 +1,29 @@
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    int len;
+    len = s.length();
+    int temp = 0;
+    int max = 0;
+    for(int i = 0; i < len; i++) {
+        if(s[i] >= 48 && s[i] <= 57) {
+            temp = int(s[i] - 48);
+            for(int j = i+1; j < len; j++) {
+                if(s[j] >= 97 && s[j] <= 122) {
+                    break;
+                } else {
+                    temp = temp * 10 + (int(s[j]) - 48);
+                }
+            }
+           
+        }
+        if(temp > max) {
+            max = temp;
+        }
+    }
+    cout << max << endl;
+
+	return 0;
+}
