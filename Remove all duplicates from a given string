@@ -1,0 +1,45 @@
+/*
+Given a string which may contains lowercase and uppercase chracters. 
+The task is to remove all  duplicate characters from the string and 
+print the resultant string.  The order of remaining characters in the 
+output should be same as in the original string.
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string removeDuplicate(string s)
+{
+    string res = "";
+    set<char> st;
+    for(int i = 0; i < s.length(); i++) {
+        st.insert(s[i]);
+    }
+    
+    for(int i = 0; i < s.length(); i++) {
+        if(st.count(s[i])) {
+            res = res + s[i];
+            st.erase(s[i]);
+        }
+        
+    }
+    
+    return res;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    
+    cout << removeDuplicate(s) << endl;
+
+	return 0;
+}
+
+/*
+INPUT:
+HindiTutorialsDarshan-ShalikramPatel
+
+OUTPUT:
+HindTutoralsDh-SkmPe
+*/
