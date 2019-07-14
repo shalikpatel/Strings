@@ -1,0 +1,44 @@
+/*
+Given a decimal number m. Convert it in binary string and apply n iterations, in each 
+iteration 0 becomes 01 and 1 becomes 10. Find kth character in the string after nth iteration.
+*/
+
+#include <iostream>
+using namespace std;
+
+char findKchar(int m, int k, int n)
+{
+    string s = "";
+    string str = "";
+    while(m) {
+        if(m % 2 == 0) {
+            s = '0' + s;
+        } else {
+            s = '1' + s;
+        }
+        m = m / 2;
+    }
+    
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < s.length(); j++) {
+            if(s[j] == '1') {
+                str = str + "10";
+            } else {
+                str = str + "01";
+            }
+        }
+        s = str;
+        str = "";
+    }
+    
+    return s[k];
+}
+
+int main() {
+    int m, k, n;
+    cin >> m >> k >> n;
+    
+    cout << findKchar(m, k, n) << endl;
+
+	return 0;
+}
