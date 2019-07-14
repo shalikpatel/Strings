@@ -1,0 +1,48 @@
+/*
+Given two strings S1 and S2 as input, the task is to merge them alternatively i.e. 
+the first character of S1 then the first character of S2 and so on till the strings end.
+*/
+#include <iostream>
+using namespace std;
+
+string mergeTwoString(string s1, string s2)
+{
+    string s = "";
+    int l1 = s1.length();
+    int l2 = s2.length();
+    int i = 0, j = 0;
+    while(i < l1 && j < l2) {
+        s = s + s1[i];
+        i++;
+        s = s + s2[j];
+        j++;
+    }
+    
+    while(i < l1) {
+        s = s + s1[i];
+        i++;
+    }
+    while(j < l2) {
+        s = s + s2[j];
+        j++;
+    }
+    
+    return s;
+}
+
+int main() {
+    string s1, s2;
+    cin >> s1;
+    cin >> s2;
+    
+    cout << mergeTwoString(s1, s2) << endl;
+
+	return 0;
+}
+
+/*
+INPUT:
+hindi tutorialsdarshan
+
+OUTPUT:
+htiuntdoirialsdarshan
