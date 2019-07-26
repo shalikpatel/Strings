@@ -1,0 +1,26 @@
+int strstr(string s, string x)
+{
+     int l1 = s.length();
+     int l2 = x.length();
+     int j;
+     int i;
+     int flage = 0;
+     for (i = 0; i < l1; i++) {
+         j = 0;
+         if(s[i] == x[j]) {
+             flage = 1;
+             for(int k = 0; k < l2; k++) {
+                 if(s[i + k]  != x[k]) {
+                     flage = 0;
+                     break;
+                 }
+             }
+         }
+         if(flage == 1) {
+             return i;
+         }
+     }
+     if(flage == 0) {
+         return -1;
+     }
+}
