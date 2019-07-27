@@ -1,0 +1,34 @@
+/*
+Given a string S consisting of lowercase. Find the first non repeating character in S.
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void FirstNonRepeatingChar(string s, int n) 
+{
+    int h[26];
+    memset(h, 0, sizeof(h));
+    for(int i = 0; i < n; i++) {
+        h[s[i]-'a']++;
+    }
+    for(int i = 0; i < n; i++) {
+        if(h[s[i]-'a'] == 1) {
+            cout << s[i] << endl;
+            return;
+        }
+    }
+    
+    cout << -1 << endl;
+}
+
+int main() {
+	    int n;
+	    cin >> n;
+	    string s;
+	    cin >> s;
+	    FirstNonRepeatingChar(s, n);
+	    
+	}
+	return 0;
+}
