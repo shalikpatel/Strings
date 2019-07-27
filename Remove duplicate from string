@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void removeDuplicate(string s)
+{
+    set<char> st;
+    for(int i = 0; i < s.length(); i++) {
+        st.insert(s[i]);
+    }
+    
+    for(int i = 0; i < s.length(); i++) {
+        if(st.count(s[i])) {
+            cout << s[i];
+            st.erase(s[i]);
+        }
+    }
+    
+    cout << endl;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    
+    removeDuplicate(s);
+    
+	return 0;
+}
