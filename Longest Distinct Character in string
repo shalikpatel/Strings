@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int longestChar(string s)
+{
+    int l = s.length();
+    int ans = 0;
+    int i = 0;
+    map<char, int> m;
+    while(i < l) {
+        if(m.find(s[i]) == m.end()) {
+            m.insert({s[i], i});
+            i++;
+        } else {
+            i = m[s[i]] + 1;
+            if(ans < m.size()) {
+                ans = m.size();
+            }
+            m.clear();
+        }
+    }
+    
+    if(ans < m.size()) {
+        return m.size();
+    } else {
+        return ans;
+    }
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << longestChar(s) << endl;
+
+	return 0;
+}
