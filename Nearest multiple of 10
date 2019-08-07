@@ -1,0 +1,42 @@
+/*
+Given a positive number N. The task is to round N to nearest multiple of 10. 
+Number can be so big and can contains 1000 of digits. like 3354436 => 3354440.
+*/
+#include<iostream>
+using namespace std;
+
+string nearestNo(string s)
+{
+    int len = s.length();
+    int last = s[len-1] - '0';
+    if(last <= 5) {
+        s[len-1] = '0';
+    } else {
+        s[len-1] = '0';
+        int carry = 1;
+        for(int i = len-2; i >= 0; i--) {
+            if(s[i] != '9') {
+                s[i]++;
+                carry = 0;
+                break;
+            } else {
+                s[i] = '0';
+            }
+        }
+        if(carry == 1) {
+            s = "1" + s;
+        }
+    }
+    
+    return s;
+}
+
+int main()
+{
+    string s;
+    cin >> s;
+    
+    cout << nearestNo(s) << endl;
+
+	return 0;
+}
